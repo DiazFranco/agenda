@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="libs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/sqlite-jdbc-3.34.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/swingx-1.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../excle/CSharpJExcel/jexcelapi/jxl.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
