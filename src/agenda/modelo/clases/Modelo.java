@@ -24,7 +24,7 @@ public class Modelo {
             String query = "SELECT * FROM CONTACTOS ";
             switch (cat) {
                 case TODOS:
-                    query += "";
+                    query += "WHERE activo = false";
                     break;
                 case OTROS:
                     query += "WHERE categoria is NULL";
@@ -78,9 +78,12 @@ public class Modelo {
     }
 
     public void borrarContacto(int id) throws SQLException {
+       // Enum eliminado = Categoria.ELIMINADOS;
         try ( Statement s = conexion.createStatement();) {
-            s.executeUpdate("DELETE FROM contactos WHERE contactos.id = " + id);
+            s.executeUpdate("UPDATE contactos SET activo = true, categoria = 'ELIMINADOS' WHERE contactos.id = " + id);
+           // s.executeUpdate("DELETE FROM contactos WHERE contactos.id = " + id);
         } catch (Exception ex) {
+            ex.printStackTrace();
             throw new RuntimeException("No se pudo borrar contacto con id " + id, ex);
         }
     }
@@ -111,6 +114,6 @@ public class Modelo {
         if (rs.getString(8) != null) {
             c = Categoria.valueOf(rs.getString(8));
         }
-        return new Contacto(id, nom, ape, mail, tel, dir, fecha, c);
+        return new Contacto(id, nom, ape, mail, tel, dir, fecha, c, false);
     }
 }

@@ -7,7 +7,8 @@ public enum Categoria {
     TODOS("Todos","Todos"), OTROS(null,"Otros"),
     AMIGO("Amigo","Amigos"), FAMILIAR("Familiar","Familiares"),
     COMP_TRABAJO("Compañero de trabajo","Compañeros de trabajo"),
-    COMP_FACU("Compañero de facultad","Compañeros de facultad"); 
+    COMP_FACU("Compañero de facultad","Compañeros de facultad"),
+    ELIMINADOS("Eliminados", "Eliminados");
 	
     private String singular;
     private String plural;

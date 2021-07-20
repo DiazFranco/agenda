@@ -233,7 +233,7 @@ public abstract class JFrameVistaFormulario extends JFrameTemplate {
         String tel = this.jTextFieldTelefono.getText();
         Date nac = new Date(this.jXDatePickerNacimiento.getDate().getTime());
         Categoria cat = (Categoria) this.jComboBoxCategoria.getSelectedItem();
-        return new Contacto(0, nom, ape, mail, tel, dir, nac, cat);
+        return new Contacto(0, nom, ape, mail, tel, dir, nac, cat, false);
     }
 
     private void validarDatos() {

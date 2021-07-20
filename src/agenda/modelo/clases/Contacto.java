@@ -16,8 +16,9 @@ public class Contacto {
     private Date fechaDeNacimiento;
     private Categoria categoria;
     private int edad;
+    private boolean activo;
     
-    public Contacto(int id, String nombre, String apellido, String mail, String telefono, String direccion, Date fechaDeNacimiento, Categoria categoria) {
+    public Contacto(int id, String nombre, String apellido, String mail, String telefono, String direccion, Date fechaDeNacimiento, Categoria categoria, boolean activo) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -26,6 +27,7 @@ public class Contacto {
         this.direccion = direccion;
         this.fechaDeNacimiento = fechaDeNacimiento;
         this.categoria = categoria;
+        this.activo = activo;
         calcularEdad();
     }
 
@@ -63,6 +65,14 @@ public class Contacto {
 
     public Categoria getCategoria() {
         return categoria;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
 
     public int getEdad() {
