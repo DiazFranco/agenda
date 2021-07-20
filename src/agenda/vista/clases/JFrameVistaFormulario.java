@@ -2,17 +2,14 @@ package agenda.vista.clases;
 
 import agenda.modelo.clases.Categoria;
 import agenda.modelo.clases.Contacto;
-import java.awt.Component;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
+import java.awt.*;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
+import javax.swing.border.LineBorder;
+
 import org.jdesktop.swingx.JXDatePicker;
 
 
@@ -26,7 +23,7 @@ public abstract class JFrameVistaFormulario extends JFrameTemplate {
         cargarIconos();
         prepararSelectorDeFecha();
         prepararListaDeCategorias();
-        manejarAccionCerrar();
+        setLocationRelativeTo(null);
     }
 
     public JFrameVistaFormulario(String titulo) {
@@ -35,7 +32,6 @@ public abstract class JFrameVistaFormulario extends JFrameTemplate {
     
     private void cargarIconos() {
         cargarIcono(jLabelFoto, "silueta-icon.png");
-        cargarIcono(jButtonCerrar, "close-icon.png");
         cargarIcono(jLabelIconoCredencial, "user-id-icon.png");
         cargarIcono(jLabelIconoMail, "mail-icon.png");
         cargarIcono(jLabelIconoTelefono, "phone-icon.png");
@@ -45,188 +41,175 @@ public abstract class JFrameVistaFormulario extends JFrameTemplate {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanelContenido = new javax.swing.JPanel();
-        jLabelFoto = new javax.swing.JLabel();
-        jPanelBotonera = new javax.swing.JPanel();
-        jButtonCerrar = new javax.swing.JButton();
-        jPanelEdicion = new javax.swing.JPanel();
-        jPanelIconos = new javax.swing.JPanel();
-        jLabelIconoCredencial = new javax.swing.JLabel();
-        jLabelIconoMail = new javax.swing.JLabel();
-        jLabelIconoTelefono = new javax.swing.JLabel();
-        jLabelIconoMapa = new javax.swing.JLabel();
-        jLabelIconoCalendario = new javax.swing.JLabel();
-        jLabelIconoEtiqueta = new javax.swing.JLabel();
-        jPanelCampos = new javax.swing.JPanel();
-        jPanelNombreApellido = new javax.swing.JPanel();
-        jTextFieldNombre = new javax.swing.JTextField();
-        jTextFieldApellido = new javax.swing.JTextField();
-        jTextFieldMail = new javax.swing.JTextField();
-        jTextFieldTelefono = new javax.swing.JTextField();
-        jTextFieldDireccion = new javax.swing.JTextField();
-        jXDatePickerNacimiento = new org.jdesktop.swingx.JXDatePicker();
-        jComboBoxCategoria = new javax.swing.JComboBox<>();
+        jPanelContenido = new JPanel();
+        jLabelFoto = new JLabel();
+        jPanelBotonera = new JPanel();
+        jPanelEdicion = new JPanel();
+        jPanelIconos = new JPanel();
+        jLabelIconoCredencial = new JLabel();
+        jLabelIconoMail = new JLabel();
+        jLabelIconoTelefono = new JLabel();
+        jLabelIconoMapa = new JLabel();
+        jLabelIconoCalendario = new JLabel();
+        jLabelIconoEtiqueta = new JLabel();
+        jPanelCampos = new JPanel();
+        jPanelNombreApellido = new JPanel();
+        jTextFieldNombre = new JTextField();
+        jTextFieldApellido = new JTextField();
+        jTextFieldMail = new JTextField();
+        jTextFieldTelefono = new JTextField();
+        jTextFieldDireccion = new JTextField();
+        jXDatePickerNacimiento = new JXDatePicker();
+        jComboBoxCategoria = new JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
-        jLabelFoto.setBackground(new java.awt.Color(238, 245, 247));
-        jLabelFoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agenda/vista/recursos/silueta-icon.png"))); // NOI18N
-        jLabelFoto.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(36, 123, 160), 4, true));
+        jLabelFoto.setBackground(new Color(238, 245, 247));
+        jLabelFoto.setHorizontalAlignment(SwingConstants.CENTER);
+        jLabelFoto.setIcon(new ImageIcon(getClass().getResource("/agenda/vista/recursos/silueta-icon.png"))); // NOI18N
+        jLabelFoto.setBorder(new LineBorder(new Color(36, 123, 160), 4, true));
 
-        jPanelBotonera.setLayout(new java.awt.GridLayout(3, 1, 0, 10));
+        jPanelBotonera.setLayout(new GridLayout(3, 1, 0, 10));
 
-        jButtonCerrar.setBackground(new java.awt.Color(238, 245, 247));
-        jButtonCerrar.setFont(new java.awt.Font("Lato", 0, 16)); // NOI18N
-        jButtonCerrar.setForeground(new java.awt.Color(24, 19, 9));
-        jButtonCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agenda/vista/recursos/close-icon.png"))); // NOI18N
-        jButtonCerrar.setText("Cerrar");
-        jButtonCerrar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButtonCerrar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jButtonCerrar.setIconTextGap(20);
-        jButtonCerrar.setPreferredSize(new java.awt.Dimension(400, 53));
-        jPanelBotonera.add(jButtonCerrar);
+        jPanelEdicion.setPreferredSize(new Dimension(100, 800));
+        jPanelEdicion.setLayout(new BoxLayout(jPanelEdicion, BoxLayout.LINE_AXIS));
 
-        jPanelEdicion.setPreferredSize(new java.awt.Dimension(100, 800));
-        jPanelEdicion.setLayout(new javax.swing.BoxLayout(jPanelEdicion, javax.swing.BoxLayout.LINE_AXIS));
+        jPanelIconos.setMinimumSize(new Dimension(70, 192));
+        jPanelIconos.setPreferredSize(new Dimension(0, 800));
+        jPanelIconos.setLayout(new GridLayout(6, 1));
 
-        jPanelIconos.setMinimumSize(new java.awt.Dimension(70, 192));
-        jPanelIconos.setPreferredSize(new java.awt.Dimension(0, 800));
-        jPanelIconos.setLayout(new java.awt.GridLayout(6, 1));
-
-        jLabelIconoCredencial.setFont(new java.awt.Font("Lato", 0, 24)); // NOI18N
-        jLabelIconoCredencial.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelIconoCredencial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agenda/vista/recursos/user-id-icon.png"))); // NOI18N
+        jLabelIconoCredencial.setFont(new Font("Lato", 0, 24)); // NOI18N
+        jLabelIconoCredencial.setHorizontalAlignment(SwingConstants.CENTER);
+        jLabelIconoCredencial.setIcon(new ImageIcon(getClass().getResource("/agenda/vista/recursos/user-id-icon.png"))); // NOI18N
         jLabelIconoCredencial.setIconTextGap(15);
         jPanelIconos.add(jLabelIconoCredencial);
 
-        jLabelIconoMail.setFont(new java.awt.Font("Lato", 0, 24)); // NOI18N
-        jLabelIconoMail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelIconoMail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agenda/vista/recursos/mail-icon.png"))); // NOI18N
+        jLabelIconoMail.setFont(new Font("Lato", 0, 24)); // NOI18N
+        jLabelIconoMail.setHorizontalAlignment(SwingConstants.CENTER);
+        jLabelIconoMail.setIcon(new ImageIcon(getClass().getResource("/agenda/vista/recursos/mail-icon.png"))); // NOI18N
         jLabelIconoMail.setIconTextGap(15);
         jPanelIconos.add(jLabelIconoMail);
 
-        jLabelIconoTelefono.setFont(new java.awt.Font("Lato", 0, 24)); // NOI18N
-        jLabelIconoTelefono.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelIconoTelefono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agenda/vista/recursos/phone-icon.png"))); // NOI18N
+        jLabelIconoTelefono.setFont(new Font("Lato", 0, 24)); // NOI18N
+        jLabelIconoTelefono.setHorizontalAlignment(SwingConstants.CENTER);
+        jLabelIconoTelefono.setIcon(new ImageIcon(getClass().getResource("/agenda/vista/recursos/phone-icon.png"))); // NOI18N
         jLabelIconoTelefono.setIconTextGap(15);
         jPanelIconos.add(jLabelIconoTelefono);
 
-        jLabelIconoMapa.setFont(new java.awt.Font("Lato", 0, 24)); // NOI18N
-        jLabelIconoMapa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelIconoMapa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agenda/vista/recursos/map-icon.png"))); // NOI18N
+        jLabelIconoMapa.setFont(new Font("Lato", 0, 24)); // NOI18N
+        jLabelIconoMapa.setHorizontalAlignment(SwingConstants.CENTER);
+        jLabelIconoMapa.setIcon(new ImageIcon(getClass().getResource("/agenda/vista/recursos/map-icon.png"))); // NOI18N
         jLabelIconoMapa.setIconTextGap(15);
         jPanelIconos.add(jLabelIconoMapa);
 
-        jLabelIconoCalendario.setFont(new java.awt.Font("Lato", 0, 14)); // NOI18N
-        jLabelIconoCalendario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelIconoCalendario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agenda/vista/recursos/calendar-icon.png"))); // NOI18N
-        jLabelIconoCalendario.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jLabelIconoCalendario.setFont(new Font("Lato", 0, 14)); // NOI18N
+        jLabelIconoCalendario.setHorizontalAlignment(SwingConstants.CENTER);
+        jLabelIconoCalendario.setIcon(new ImageIcon(getClass().getResource("/agenda/vista/recursos/calendar-icon.png"))); // NOI18N
+        jLabelIconoCalendario.setHorizontalTextPosition(SwingConstants.RIGHT);
         jLabelIconoCalendario.setIconTextGap(5);
         jPanelIconos.add(jLabelIconoCalendario);
 
-        jLabelIconoEtiqueta.setFont(new java.awt.Font("Lato", 0, 24)); // NOI18N
-        jLabelIconoEtiqueta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelIconoEtiqueta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agenda/vista/recursos/tag-icon.png"))); // NOI18N
+        jLabelIconoEtiqueta.setFont(new Font("Lato", 0, 24)); // NOI18N
+        jLabelIconoEtiqueta.setHorizontalAlignment(SwingConstants.CENTER);
+        jLabelIconoEtiqueta.setIcon(new ImageIcon(getClass().getResource("/agenda/vista/recursos/tag-icon.png"))); // NOI18N
         jLabelIconoEtiqueta.setIconTextGap(15);
         jPanelIconos.add(jLabelIconoEtiqueta);
 
         jPanelEdicion.add(jPanelIconos);
 
-        jPanelCampos.setLayout(new java.awt.GridLayout(6, 1));
+        jPanelCampos.setLayout(new GridLayout(6, 1));
 
-        jPanelNombreApellido.setLayout(new java.awt.GridLayout(1, 2));
+        jPanelNombreApellido.setLayout(new GridLayout(1, 2));
 
-        jTextFieldNombre.setFont(new java.awt.Font("Lato", 0, 20)); // NOI18N
-        jTextFieldNombre.setForeground(new java.awt.Color(24, 19, 9));
-        jTextFieldNombre.setMargin(new java.awt.Insets(5, 5, 5, 5));
+        jTextFieldNombre.setFont(new Font("Lato", 0, 20)); // NOI18N
+        jTextFieldNombre.setForeground(new Color(24, 19, 9));
+        jTextFieldNombre.setMargin(new Insets(5, 5, 5, 5));
         jTextFieldNombre.setName("Nombre"); // NOI18N
-        jTextFieldNombre.setSelectionColor(new java.awt.Color(255, 206, 91));
+        jTextFieldNombre.setSelectionColor(new Color(255, 206, 91));
         jPanelNombreApellido.add(jTextFieldNombre);
 
-        jTextFieldApellido.setFont(new java.awt.Font("Lato", 0, 20)); // NOI18N
-        jTextFieldApellido.setForeground(new java.awt.Color(24, 19, 9));
-        jTextFieldApellido.setMargin(new java.awt.Insets(5, 5, 5, 5));
+        jTextFieldApellido.setFont(new Font("Lato", 0, 20)); // NOI18N
+        jTextFieldApellido.setForeground(new Color(24, 19, 9));
+        jTextFieldApellido.setMargin(new Insets(5, 5, 5, 5));
         jTextFieldApellido.setName("Apellido"); // NOI18N
-        jTextFieldApellido.setSelectionColor(new java.awt.Color(255, 206, 91));
+        jTextFieldApellido.setSelectionColor(new Color(255, 206, 91));
         jPanelNombreApellido.add(jTextFieldApellido);
 
         jPanelCampos.add(jPanelNombreApellido);
 
-        jTextFieldMail.setFont(new java.awt.Font("Lato", 0, 20)); // NOI18N
-        jTextFieldMail.setForeground(new java.awt.Color(24, 19, 9));
-        jTextFieldMail.setMargin(new java.awt.Insets(5, 5, 5, 5));
+        jTextFieldMail.setFont(new Font("Lato", 0, 20)); // NOI18N
+        jTextFieldMail.setForeground(new Color(24, 19, 9));
+        jTextFieldMail.setMargin(new Insets(5, 5, 5, 5));
         jTextFieldMail.setName("Mail"); // NOI18N
-        jTextFieldMail.setSelectionColor(new java.awt.Color(255, 206, 91));
+        jTextFieldMail.setSelectionColor(new Color(255, 206, 91));
         jPanelCampos.add(jTextFieldMail);
 
-        jTextFieldTelefono.setFont(new java.awt.Font("Lato", 0, 20)); // NOI18N
-        jTextFieldTelefono.setForeground(new java.awt.Color(24, 19, 9));
-        jTextFieldTelefono.setMargin(new java.awt.Insets(5, 5, 5, 5));
+        jTextFieldTelefono.setFont(new Font("Lato", 0, 20)); // NOI18N
+        jTextFieldTelefono.setForeground(new Color(24, 19, 9));
+        jTextFieldTelefono.setMargin(new Insets(5, 5, 5, 5));
         jTextFieldTelefono.setName("Teléfono"); // NOI18N
-        jTextFieldTelefono.setSelectionColor(new java.awt.Color(255, 206, 91));
+        jTextFieldTelefono.setSelectionColor(new Color(255, 206, 91));
         jPanelCampos.add(jTextFieldTelefono);
 
-        jTextFieldDireccion.setFont(new java.awt.Font("Lato", 0, 20)); // NOI18N
-        jTextFieldDireccion.setForeground(new java.awt.Color(24, 19, 9));
-        jTextFieldDireccion.setMargin(new java.awt.Insets(5, 5, 5, 5));
+        jTextFieldDireccion.setFont(new Font("Lato", 0, 20)); // NOI18N
+        jTextFieldDireccion.setForeground(new Color(24, 19, 9));
+        jTextFieldDireccion.setMargin(new Insets(5, 5, 5, 5));
         jTextFieldDireccion.setName("Dirección"); // NOI18N
-        jTextFieldDireccion.setSelectionColor(new java.awt.Color(255, 206, 91));
+        jTextFieldDireccion.setSelectionColor(new Color(255, 206, 91));
         jPanelCampos.add(jTextFieldDireccion);
 
-        jXDatePickerNacimiento.setForeground(new java.awt.Color(24, 19, 9));
-        jXDatePickerNacimiento.setFont(new java.awt.Font("Lato", 0, 20)); // NOI18N
+        jXDatePickerNacimiento.setForeground(new Color(24, 19, 9));
+        jXDatePickerNacimiento.setFont(new Font("Lato", 0, 20)); // NOI18N
         jXDatePickerNacimiento.setName("Fecha de nacimiento"); // NOI18N
         jPanelCampos.add(jXDatePickerNacimiento);
 
         jComboBoxCategoria.setEditable(true);
-        jComboBoxCategoria.setFont(new java.awt.Font("Lato", 0, 18)); // NOI18N
+        jComboBoxCategoria.setFont(new Font("Lato", 0, 18)); // NOI18N
         jComboBoxCategoria.setToolTipText("");
         jComboBoxCategoria.setName("Categoria"); // NOI18N
-        jComboBoxCategoria.setPreferredSize(new java.awt.Dimension(200, 30));
+        jComboBoxCategoria.setPreferredSize(new Dimension(200, 30));
         jPanelCampos.add(jComboBoxCategoria);
 
         jPanelEdicion.add(jPanelCampos);
 
-        javax.swing.GroupLayout jPanelContenidoLayout = new javax.swing.GroupLayout(jPanelContenido);
+        GroupLayout jPanelContenidoLayout = new GroupLayout(jPanelContenido);
         jPanelContenido.setLayout(jPanelContenidoLayout);
         jPanelContenidoLayout.setHorizontalGroup(
-            jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            jPanelContenidoLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(jPanelContenidoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanelBotonera, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelContenidoLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanelBotonera, GroupLayout.PREFERRED_SIZE, 144, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelFoto, GroupLayout.PREFERRED_SIZE, 144, GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(394, Short.MAX_VALUE))
-            .addGroup(jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContenidoLayout.createSequentialGroup()
+            .addGroup(jPanelContenidoLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(GroupLayout.Alignment.TRAILING, jPanelContenidoLayout.createSequentialGroup()
                     .addContainerGap(158, Short.MAX_VALUE)
-                    .addComponent(jPanelEdicion, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelEdicion, GroupLayout.PREFERRED_SIZE, 380, GroupLayout.PREFERRED_SIZE)
                     .addContainerGap()))
         );
         jPanelContenidoLayout.setVerticalGroup(
-            jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContenidoLayout.createSequentialGroup()
+            jPanelContenidoLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(GroupLayout.Alignment.TRAILING, jPanelContenidoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelFoto)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                .addComponent(jPanelBotonera, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addComponent(jPanelBotonera, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addGroup(jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContenidoLayout.createSequentialGroup()
+            .addGroup(jPanelContenidoLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(GroupLayout.Alignment.TRAILING, jPanelContenidoLayout.createSequentialGroup()
                     .addContainerGap(12, Short.MAX_VALUE)
-                    .addComponent(jPanelEdicion, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelEdicion, GroupLayout.PREFERRED_SIZE, 300, GroupLayout.PREFERRED_SIZE)
                     .addContainerGap()))
         );
 
-        getContentPane().add(jPanelContenido, java.awt.BorderLayout.CENTER);
+        getContentPane().add(jPanelContenido, BorderLayout.CENTER);
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
     private void prepararSelectorDeFecha() {
         this.jXDatePickerNacimiento.setFormats(new SimpleDateFormat("d 'de' MMMM 'de' yyyy", LOCALE_AR));
@@ -335,36 +318,24 @@ public abstract class JFrameVistaFormulario extends JFrameTemplate {
         return jPanelBotonera;
     }
 
-    private void manejarAccionCerrar() {
-        this.jButtonCerrar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cerrarVentana();
-            }
-        });
-    }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonCerrar;
-    private javax.swing.JComboBox<Categoria> jComboBoxCategoria;
-    private javax.swing.JLabel jLabelFoto;
-    private javax.swing.JLabel jLabelIconoCalendario;
-    private javax.swing.JLabel jLabelIconoCredencial;
-    private javax.swing.JLabel jLabelIconoEtiqueta;
-    private javax.swing.JLabel jLabelIconoMail;
-    private javax.swing.JLabel jLabelIconoMapa;
-    private javax.swing.JLabel jLabelIconoTelefono;
-    private javax.swing.JPanel jPanelBotonera;
-    private javax.swing.JPanel jPanelCampos;
-    private javax.swing.JPanel jPanelContenido;
-    private javax.swing.JPanel jPanelEdicion;
-    private javax.swing.JPanel jPanelIconos;
-    private javax.swing.JPanel jPanelNombreApellido;
-    private javax.swing.JTextField jTextFieldApellido;
-    private javax.swing.JTextField jTextFieldDireccion;
-    private javax.swing.JTextField jTextFieldMail;
-    private javax.swing.JTextField jTextFieldNombre;
-    private javax.swing.JTextField jTextFieldTelefono;
-    private org.jdesktop.swingx.JXDatePicker jXDatePickerNacimiento;
-    // End of variables declaration//GEN-END:variables
+    private JComboBox<Categoria> jComboBoxCategoria;
+    private JLabel jLabelFoto;
+    private JLabel jLabelIconoCalendario;
+    private JLabel jLabelIconoCredencial;
+    private JLabel jLabelIconoEtiqueta;
+    private JLabel jLabelIconoMail;
+    private JLabel jLabelIconoMapa;
+    private JLabel jLabelIconoTelefono;
+    private JPanel jPanelBotonera;
+    private JPanel jPanelCampos;
+    private JPanel jPanelContenido;
+    private JPanel jPanelEdicion;
+    private JPanel jPanelIconos;
+    private JPanel jPanelNombreApellido;
+    private JTextField jTextFieldApellido;
+    private JTextField jTextFieldDireccion;
+    private JTextField jTextFieldMail;
+    private JTextField jTextFieldNombre;
+    private JTextField jTextFieldTelefono;
+    private JXDatePicker jXDatePickerNacimiento;
 }

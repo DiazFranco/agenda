@@ -5,8 +5,7 @@ import agenda.modelo.clases.Categoria;
 import agenda.modelo.clases.Contacto;
 import agenda.modelo.clases.Exporter;
 
-import java.awt.Color;
-import java.awt.Component;
+import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
 import java.awt.event.MouseListener;
@@ -17,6 +16,8 @@ import java.util.List;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 
 public class JFrameVistaPrincipal extends JFrameTemplate {
@@ -44,98 +45,101 @@ public class JFrameVistaPrincipal extends JFrameTemplate {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanelCabecera = new javax.swing.JPanel();
-        jPanelFiltro = new javax.swing.JPanel();
-        jLabelCategoria = new javax.swing.JLabel();
-        jComboBoxFiltroCategoria = new javax.swing.JComboBox<>();
-        jLabelLeyenda = new javax.swing.JLabel();
-        jLabelEstado = new javax.swing.JLabel();
-        jPanelBotonera = new javax.swing.JPanel();
-        jButtonConectar = new javax.swing.JButton();
-        jButtonExportar = new javax.swing.JButton();
-        jButtonAgregar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jPanelCabecera = new JPanel();
+        jPanelFiltro = new JPanel();
+        jLabelCategoria = new JLabel();
+        jComboBoxFiltroCategoria = new JComboBox<>();
+        jLabelLeyenda = new JLabel();
+        jLabelEstado = new JLabel();
+        jPanelBotonera = new JPanel();
+        jButtonConectar = new JButton();
+        jButtonExportar = new JButton();
+        jButtonAgregar = new JButton();
+        jScrollPane1 = new JScrollPane();
+        jTable1 = new JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(217, 200, 184));
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new Color(217, 200, 184));
         setResizable(false);
-        getContentPane().setLayout(new java.awt.BorderLayout(10, 10));
+        getContentPane().setLayout(new BorderLayout(10, 10));
 
-        jPanelCabecera.setPreferredSize(new java.awt.Dimension(850, 80));
-        jPanelCabecera.setLayout(new java.awt.BorderLayout());
+        jPanelCabecera.setPreferredSize(new Dimension(850, 80));
+        jPanelCabecera.setLayout(new BorderLayout());
 
-        jPanelFiltro.setPreferredSize(new java.awt.Dimension(400, 50));
-        jPanelFiltro.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 10));
+        jPanelFiltro.setPreferredSize(new Dimension(400, 50));
+        jPanelFiltro.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 10));
 
-        jLabelCategoria.setFont(new java.awt.Font("Lato", 0, 18)); // NOI18N
-        jLabelCategoria.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelCategoria.setFont(new Font("Lato", 0, 18)); // NOI18N
+        jLabelCategoria.setHorizontalAlignment(SwingConstants.RIGHT);
         jLabelCategoria.setText("Categoría:");
         jLabelCategoria.setIconTextGap(10);
         jPanelFiltro.add(jLabelCategoria);
 
-        jComboBoxFiltroCategoria.setFont(new java.awt.Font("Lato", 0, 18)); // NOI18N
+        jComboBoxFiltroCategoria.setFont(new Font("Lato", 0, 18)); // NOI18N
         jComboBoxFiltroCategoria.setToolTipText("");
         jComboBoxFiltroCategoria.setEnabled(false);
-        jComboBoxFiltroCategoria.setPreferredSize(new java.awt.Dimension(200, 30));
+        jComboBoxFiltroCategoria.setPreferredSize(new Dimension(200, 30));
         jPanelFiltro.add(jComboBoxFiltroCategoria);
 
-        jLabelLeyenda.setFont(new java.awt.Font("Lato", 0, 14)); // NOI18N
-        jLabelLeyenda.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelLeyenda.setFont(new Font("Lato", 0, 14)); // NOI18N
+        jLabelLeyenda.setHorizontalAlignment(SwingConstants.CENTER);
         jLabelLeyenda.setText("DOBLE CLICK  en un contacto para más datos.");
-        jLabelLeyenda.setPreferredSize(new java.awt.Dimension(400, 20));
-        jLabelLeyenda.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jLabelLeyenda.setPreferredSize(new Dimension(400, 20));
+        jLabelLeyenda.setVerticalTextPosition(SwingConstants.BOTTOM);
         jPanelFiltro.add(jLabelLeyenda);
 
-        jPanelCabecera.add(jPanelFiltro, java.awt.BorderLayout.WEST);
+        jPanelCabecera.add(jPanelFiltro, BorderLayout.WEST);
 
-        jLabelEstado.setFont(new java.awt.Font("Lato Black", 1, 18)); // NOI18N
-        jLabelEstado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelEstado.setFont(new Font("Lato Black", 1, 18)); // NOI18N
+        jLabelEstado.setHorizontalAlignment(SwingConstants.CENTER);
         jLabelEstado.setText("status");
-        jPanelCabecera.add(jLabelEstado, java.awt.BorderLayout.CENTER);
+        jPanelCabecera.add(jLabelEstado, BorderLayout.CENTER);
 
-        jPanelBotonera.setPreferredSize(new java.awt.Dimension(265, 40));
-        jPanelBotonera.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 18));
+        jPanelBotonera.setPreferredSize(new Dimension(265, 40));
+        jPanelBotonera.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 18));
 
-        jButtonConectar.setBackground(new java.awt.Color(238, 245, 247));
-        jButtonConectar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButtonConectar.setForeground(new java.awt.Color(255, 250, 240));
-        jButtonConectar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jButtonConectar.setBackground(new Color(238, 245, 247));
+        jButtonConectar.setFont(new Font("Tahoma", 0, 18)); // NOI18N
+        jButtonConectar.setForeground(new Color(255, 250, 240));
+        jButtonConectar.setHorizontalTextPosition(SwingConstants.RIGHT);
         jButtonConectar.setIconTextGap(20);
-        jButtonConectar.setMaximumSize(new java.awt.Dimension(60, 40));
-        jButtonConectar.setMinimumSize(new java.awt.Dimension(40, 40));
-        jButtonConectar.setPreferredSize(new java.awt.Dimension(60, 40));
+        jButtonConectar.setToolTipText("Conectar");
+        jButtonConectar.setMaximumSize(new Dimension(60, 40));
+        jButtonConectar.setMinimumSize(new Dimension(40, 40));
+        jButtonConectar.setPreferredSize(new Dimension(60, 40));
         jPanelBotonera.add(jButtonConectar);
 
-        jButtonExportar.setBackground(new java.awt.Color(238, 245, 247));
-        jButtonExportar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButtonExportar.setForeground(new java.awt.Color(255, 250, 240));
+        jButtonExportar.setBackground(new Color(238, 245, 247));
+        jButtonExportar.setFont(new Font("Tahoma", 0, 18)); // NOI18N
+        jButtonExportar.setForeground(new Color(255, 250, 240));
         jButtonExportar.setEnabled(false);
-        jButtonExportar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jButtonExportar.setHorizontalTextPosition(SwingConstants.RIGHT);
         jButtonExportar.setIconTextGap(20);
-        jButtonExportar.setMaximumSize(new java.awt.Dimension(60, 40));
-        jButtonExportar.setMinimumSize(new java.awt.Dimension(40, 40));
-        jButtonExportar.setPreferredSize(new java.awt.Dimension(60, 40));
+        jButtonExportar.setToolTipText("Exportar contactos");
+        jButtonExportar.setMaximumSize(new Dimension(60, 40));
+        jButtonExportar.setMinimumSize(new Dimension(40, 40));
+        jButtonExportar.setPreferredSize(new Dimension(60, 40));
         jPanelBotonera.add(jButtonExportar);
 
-        jButtonAgregar.setBackground(new java.awt.Color(238, 245, 247));
-        jButtonAgregar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButtonAgregar.setForeground(new java.awt.Color(255, 250, 240));
+        jButtonAgregar.setBackground(new Color(238, 245, 247));
+        jButtonAgregar.setFont(new Font("Tahoma", 0, 18)); // NOI18N
+        jButtonAgregar.setForeground(new Color(255, 250, 240));
         jButtonAgregar.setEnabled(false);
-        jButtonAgregar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jButtonAgregar.setHorizontalTextPosition(SwingConstants.RIGHT);
         jButtonAgregar.setIconTextGap(20);
-        jButtonAgregar.setMaximumSize(new java.awt.Dimension(60, 40));
-        jButtonAgregar.setMinimumSize(new java.awt.Dimension(40, 40));
-        jButtonAgregar.setPreferredSize(new java.awt.Dimension(60, 40));
+        jButtonAgregar.setToolTipText("Agregar contacto");
+        jButtonAgregar.setMaximumSize(new Dimension(60, 40));
+        jButtonAgregar.setMinimumSize(new Dimension(40, 40));
+        jButtonAgregar.setPreferredSize(new Dimension(60, 40));
         jPanelBotonera.add(jButtonAgregar);
 
-        jPanelCabecera.add(jPanelBotonera, java.awt.BorderLayout.EAST);
+        jPanelCabecera.add(jPanelBotonera, BorderLayout.EAST);
 
-        getContentPane().add(jPanelCabecera, java.awt.BorderLayout.NORTH);
+        getContentPane().add(jPanelCabecera, BorderLayout.NORTH);
 
-        jTable1.setBackground(new java.awt.Color(238, 245, 247));
-        jTable1.setFont(new java.awt.Font("Lato", 0, 18)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setBackground(new Color(238, 245, 247));
+        jTable1.setFont(new Font("Lato", 0, 18));
+        jTable1.setModel(new DefaultTableModel(
             new Object [][] {
 
             },
@@ -158,12 +162,14 @@ public class JFrameVistaPrincipal extends JFrameTemplate {
                 return canEdit [columnIndex];
             }
         });
+        RowSorter<TableModel> sorter = new TableRowSorter<>(jTable1.getModel());
+        jTable1.setRowSorter(sorter);
         jTable1.setDragEnabled(true);
-        jTable1.setGridColor(new java.awt.Color(36, 123, 160));
-        jTable1.setIntercellSpacing(new java.awt.Dimension(0, 3));
+        jTable1.setGridColor(new Color(36, 123, 160));
+        jTable1.setIntercellSpacing(new Dimension(0, 3));
         jTable1.setRowHeight(30);
-        jTable1.setSelectionBackground(new java.awt.Color(75, 147, 177));
-        jTable1.setSelectionForeground(new java.awt.Color(238, 245, 247));
+        jTable1.setSelectionBackground(new Color(75, 147, 177));
+        jTable1.setSelectionForeground(new Color(238, 245, 247));
         jTable1.setShowVerticalLines(false);
         jScrollPane1.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
@@ -171,7 +177,7 @@ public class JFrameVistaPrincipal extends JFrameTemplate {
             jTable1.getColumnModel().getColumn(0).setPreferredWidth(0);
         }
 
-        getContentPane().add(jScrollPane1, java.awt.BorderLayout.CENTER);
+        getContentPane().add(jScrollPane1, BorderLayout.CENTER);
 
         pack();
         setLocationRelativeTo(null);
@@ -296,17 +302,17 @@ public class JFrameVistaPrincipal extends JFrameTemplate {
     }
 
 
-    private javax.swing.JButton jButtonAgregar;
-    private javax.swing.JButton jButtonConectar;
-    private javax.swing.JButton jButtonExportar;
-    private javax.swing.JComboBox<Categoria> jComboBoxFiltroCategoria;
-    private javax.swing.JLabel jLabelCategoria;
-    private javax.swing.JLabel jLabelEstado;
-    private javax.swing.JLabel jLabelLeyenda;
-    private javax.swing.JPanel jPanelBotonera;
-    private javax.swing.JPanel jPanelCabecera;
-    private javax.swing.JPanel jPanelFiltro;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private JButton jButtonAgregar;
+    private JButton jButtonConectar;
+    private JButton jButtonExportar;
+    private JComboBox<Categoria> jComboBoxFiltroCategoria;
+    private JLabel jLabelCategoria;
+    private JLabel jLabelEstado;
+    private JLabel jLabelLeyenda;
+    private JPanel jPanelBotonera;
+    private JPanel jPanelCabecera;
+    private JPanel jPanelFiltro;
+    private JScrollPane jScrollPane1;
+    private JTable jTable1;
 
 }

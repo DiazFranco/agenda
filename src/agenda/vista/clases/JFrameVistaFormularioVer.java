@@ -2,15 +2,16 @@
 package agenda.vista.clases;
 
 import agenda.modelo.clases.Contacto;
-import java.awt.Component;
+
+import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
-import javax.swing.JButton;
-import javax.swing.JToggleButton;
+import javax.swing.*;
 
 
 public class JFrameVistaFormularioVer extends JFrameVistaFormulario {
 
+    private JToggleButton jToggleButtonGuardar;
     private JToggleButton jToggleButtonEditar;
     private JButton jButtonBorrar;
     private Contacto contacto;
@@ -27,6 +28,7 @@ public class JFrameVistaFormularioVer extends JFrameVistaFormulario {
     private void cargarIconos() {
         cargarIcono(jToggleButtonEditar, "edit-user-icon.png");
         cargarIcono(jButtonBorrar, "remove-user-icon.png");
+        cargarIcono(jToggleButtonGuardar, "check-icon.png");
     }
 
     public JFrameVistaFormularioVer(String titulo, Contacto co) {
@@ -34,25 +36,35 @@ public class JFrameVistaFormularioVer extends JFrameVistaFormulario {
     }
 
     public final void initComponents() {
+        this.jToggleButtonGuardar = new JToggleButton();
+        jToggleButtonGuardar.setBackground(new Color(238, 245, 247));
+        jToggleButtonGuardar.setFont(new Font("Lato", 0, 16)); // NOI18N
+        jToggleButtonGuardar.setForeground(new Color(24, 19, 9));
+        jToggleButtonGuardar.setText("Guardar");
+        jToggleButtonGuardar.setHorizontalAlignment(SwingConstants.LEFT);
+        jToggleButtonGuardar.setHorizontalTextPosition(SwingConstants.RIGHT);
+        jToggleButtonGuardar.setIconTextGap(20);
+        jToggleButtonGuardar.setPreferredSize(new Dimension(400, 53));
+        getJPanelBotonera().add(jToggleButtonGuardar);
         this.jToggleButtonEditar = new JToggleButton();
-        jToggleButtonEditar.setBackground(new java.awt.Color(238, 245, 247));
-        jToggleButtonEditar.setFont(new java.awt.Font("Lato", 0, 16)); // NOI18N
-        jToggleButtonEditar.setForeground(new java.awt.Color(24, 19, 9));
+        jToggleButtonEditar.setBackground(new Color(238, 245, 247));
+        jToggleButtonEditar.setFont(new Font("Lato", 0, 16)); // NOI18N
+        jToggleButtonEditar.setForeground(new Color(24, 19, 9));
         jToggleButtonEditar.setText("Editar");
-        jToggleButtonEditar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jToggleButtonEditar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jToggleButtonEditar.setHorizontalAlignment(SwingConstants.LEFT);
+        jToggleButtonEditar.setHorizontalTextPosition(SwingConstants.RIGHT);
         jToggleButtonEditar.setIconTextGap(20);
-        jToggleButtonEditar.setPreferredSize(new java.awt.Dimension(400, 53));
+        jToggleButtonEditar.setPreferredSize(new Dimension(400, 53));
         getJPanelBotonera().add(jToggleButtonEditar);
         this.jButtonBorrar = new JButton();
-        jButtonBorrar.setBackground(new java.awt.Color(238, 245, 247));
-        jButtonBorrar.setFont(new java.awt.Font("Lato", 0, 16)); // NOI18N
-        jButtonBorrar.setForeground(new java.awt.Color(24, 19, 9));
+        jButtonBorrar.setBackground(new Color(238, 245, 247));
+        jButtonBorrar.setFont(new Font("Lato", 0, 16)); // NOI18N
+        jButtonBorrar.setForeground(new Color(24, 19, 9));
         jButtonBorrar.setText("Borrar");
-        jButtonBorrar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButtonBorrar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jButtonBorrar.setHorizontalAlignment(SwingConstants.LEFT);
+        jButtonBorrar.setHorizontalTextPosition(SwingConstants.RIGHT);
         jButtonBorrar.setIconTextGap(20);
-        jButtonBorrar.setPreferredSize(new java.awt.Dimension(400, 53));
+        jButtonBorrar.setPreferredSize(new Dimension(400, 53));
         getJPanelBotonera().add(jButtonBorrar);
     }
 
@@ -74,9 +86,11 @@ public class JFrameVistaFormularioVer extends JFrameVistaFormulario {
         return co;
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////
-    //////////////////////// MANEJADORES PARA CADA ACCION //////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////  
+    public void manejarAccionGuardar(ActionListener il) {
+       this.jToggleButtonGuardar.addActionListener(il);
+    }
+
+
     public void manejarAccionEditar(ItemListener il) {
         this.jToggleButtonEditar.addItemListener(il);
     }

@@ -1,17 +1,21 @@
 package agenda.vista.clases;
 
-import java.awt.Component;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
 public class JFrameVistaLogin extends JFrameTemplate {
 
+
     public JFrameVistaLogin(String titulo, Component parent) {
         super(titulo, parent);
         initComponents();
         cargarIconos();
         manejarAccionCerrar();
+        setLocationRelativeTo(null);
+
     }
 
     public JFrameVistaLogin(String titulo) {
@@ -24,152 +28,121 @@ public class JFrameVistaLogin extends JFrameTemplate {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    //
     private void initComponents() {
 
-        jPanelContenido = new javax.swing.JPanel();
-        jPanelEdicion = new javax.swing.JPanel();
-        jPanelLabels = new javax.swing.JPanel();
-        jLabelDriver = new javax.swing.JLabel();
-        jLabelUrl = new javax.swing.JLabel();
-        jLabelUser = new javax.swing.JLabel();
-        jLabelPass = new javax.swing.JLabel();
-        jPanelCampos = new javax.swing.JPanel();
-        jTextFieldDriver = new javax.swing.JTextField();
-        jTextFieldUrl = new javax.swing.JTextField();
-        jTextFieldUser = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jPanelBotonera = new javax.swing.JPanel();
-        jButtonConectar = new javax.swing.JButton();
-        jButtonCerrar = new javax.swing.JButton();
+        jPanelContenido = new JPanel();
+        jPanelEdicion = new JPanel();
+        jPanelLabels = new JPanel();
+        jLabelUser = new JLabel();
+        jLabelPass = new JLabel();
+        jPanelCampos = new JPanel();
+        jTextFieldUser = new JTextField();
+        jPasswordField1 = new JPasswordField();
+        jPanelBotonera = new JPanel();
+        jButtonConectar = new JButton();
+        jButtonCerrar = new JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
-        jPanelEdicion.setPreferredSize(new java.awt.Dimension(100, 800));
-        jPanelEdicion.setLayout(new java.awt.BorderLayout(10, 0));
+        jPanelEdicion.setPreferredSize(new Dimension(100, 800));
+        jPanelEdicion.setLayout(new BorderLayout(10, 0));
 
-        jPanelLabels.setMinimumSize(new java.awt.Dimension(80, 90));
-        jPanelLabels.setPreferredSize(new java.awt.Dimension(120, 800));
-        jPanelLabels.setLayout(new java.awt.GridLayout(4, 1));
+        jPanelLabels.setMinimumSize(new Dimension(80, 90));
+        jPanelLabels.setPreferredSize(new Dimension(120, 800));
+        jPanelLabels.setLayout(new GridLayout(4, 1));
 
-        jLabelDriver.setFont(new java.awt.Font("Lato", 0, 24)); // NOI18N
-        jLabelDriver.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabelDriver.setText("Driver:");
-        jLabelDriver.setIconTextGap(15);
-        jLabelDriver.setPreferredSize(new java.awt.Dimension(200, 0));
-        jPanelLabels.add(jLabelDriver);
-
-        jLabelUrl.setFont(new java.awt.Font("Lato", 0, 24)); // NOI18N
-        jLabelUrl.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabelUrl.setText("URL:");
-        jLabelUrl.setIconTextGap(15);
-        jLabelUrl.setPreferredSize(new java.awt.Dimension(200, 0));
-        jPanelLabels.add(jLabelUrl);
-
-        jLabelUser.setFont(new java.awt.Font("Lato", 0, 24)); // NOI18N
-        jLabelUser.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelUser.setFont(new Font("Lato", 0, 24)); // NOI18N
+        jLabelUser.setHorizontalAlignment(SwingConstants.RIGHT);
         jLabelUser.setText("User:");
         jLabelUser.setIconTextGap(15);
-        jLabelUser.setPreferredSize(new java.awt.Dimension(200, 0));
+        jLabelUser.setPreferredSize(new Dimension(200, 0));
         jPanelLabels.add(jLabelUser);
 
-        jLabelPass.setFont(new java.awt.Font("Lato", 0, 24)); // NOI18N
-        jLabelPass.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelPass.setFont(new Font("Lato", 0, 24)); // NOI18N
+        jLabelPass.setHorizontalAlignment(SwingConstants.RIGHT);
         jLabelPass.setText("Pass:");
         jLabelPass.setIconTextGap(15);
-        jLabelPass.setPreferredSize(new java.awt.Dimension(200, 0));
+        jLabelPass.setPreferredSize(new Dimension(200, 0));
         jPanelLabels.add(jLabelPass);
 
-        jPanelEdicion.add(jPanelLabels, java.awt.BorderLayout.WEST);
+        jPanelEdicion.add(jPanelLabels, BorderLayout.WEST);
 
-        jPanelCampos.setMinimumSize(new java.awt.Dimension(320, 148));
-        jPanelCampos.setPreferredSize(new java.awt.Dimension(320, 111));
-        jPanelCampos.setLayout(new java.awt.GridLayout(4, 1));
+        jPanelCampos.setMinimumSize(new Dimension(320, 148));
+        jPanelCampos.setPreferredSize(new Dimension(320, 111));
+        jPanelCampos.setLayout(new GridLayout(4, 1));
 
-        jTextFieldDriver.setFont(new java.awt.Font("Lato", 0, 15)); // NOI18N
-        jTextFieldDriver.setForeground(new java.awt.Color(24, 19, 9));
-        jTextFieldDriver.setText("org.sqlite.JDBC");
-        jTextFieldDriver.setMargin(new java.awt.Insets(5, 5, 5, 5));
-        jTextFieldDriver.setSelectionColor(new java.awt.Color(255, 206, 91));
-        jPanelCampos.add(jTextFieldDriver);
-
-        jTextFieldUrl.setFont(new java.awt.Font("Lato", 0, 15)); // NOI18N
-        jTextFieldUrl.setForeground(new java.awt.Color(24, 19, 9));
-        jTextFieldUrl.setText("jdbc:sqlite:src/agenda/modelo/bd/agenda.db");
-        jTextFieldUrl.setMargin(new java.awt.Insets(5, 5, 5, 5));
-        jTextFieldUrl.setSelectionColor(new java.awt.Color(255, 206, 91));
-        jPanelCampos.add(jTextFieldUrl);
-
-        jTextFieldUser.setFont(new java.awt.Font("Lato", 0, 15)); // NOI18N
-        jTextFieldUser.setForeground(new java.awt.Color(24, 19, 9));
-        jTextFieldUser.setMargin(new java.awt.Insets(5, 5, 5, 5));
-        jTextFieldUser.setSelectionColor(new java.awt.Color(255, 206, 91));
+        jTextFieldUser.setFont(new Font("Lato", 0, 15)); // NOI18N
+        jTextFieldUser.setForeground(new Color(24, 19, 9));
+        jTextFieldUser.setMargin(new Insets(5, 5, 5, 5));
+        jTextFieldUser.setSelectionColor(new Color(255, 206, 91));
         jPanelCampos.add(jTextFieldUser);
 
-        jPasswordField1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jPasswordField1.setMargin(new java.awt.Insets(5, 5, 5, 5));
+        jPasswordField1.setFont(new Font("Tahoma", 0, 15)); // NOI18N
+        jPasswordField1.setMargin(new Insets(5, 5, 5, 5));
         jPanelCampos.add(jPasswordField1);
 
-        jPanelEdicion.add(jPanelCampos, java.awt.BorderLayout.CENTER);
+        jPanelEdicion.add(jPanelCampos, BorderLayout.CENTER);
 
-        jPanelBotonera.setPreferredSize(new java.awt.Dimension(850, 53));
-        jPanelBotonera.setLayout(new javax.swing.BoxLayout(jPanelBotonera, javax.swing.BoxLayout.LINE_AXIS));
+        jPanelBotonera.setPreferredSize(new Dimension(850, 53));
+        jPanelBotonera.setLayout(new BoxLayout(jPanelBotonera, BoxLayout.LINE_AXIS));
 
-        jButtonConectar.setBackground(new java.awt.Color(238, 245, 247));
-        jButtonConectar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButtonConectar.setForeground(new java.awt.Color(24, 19, 9));
+        jButtonConectar.setBackground(new Color(238, 245, 247));
+        jButtonConectar.setFont(new Font("Tahoma", 0, 18)); // NOI18N
+        jButtonConectar.setForeground(new Color(24, 19, 9));
         jButtonConectar.setText("Conectar");
-        jButtonConectar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButtonConectar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jButtonConectar.setHorizontalAlignment(SwingConstants.LEFT);
+        jButtonConectar.setHorizontalTextPosition(SwingConstants.RIGHT);
         jButtonConectar.setIconTextGap(20);
-        jButtonConectar.setPreferredSize(new java.awt.Dimension(400, 53));
+        jButtonConectar.setPreferredSize(new Dimension(400, 53));
         jPanelBotonera.add(jButtonConectar);
 
-        jButtonCerrar.setBackground(new java.awt.Color(238, 245, 247));
-        jButtonCerrar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButtonCerrar.setForeground(new java.awt.Color(24, 19, 9));
+        jButtonCerrar.setBackground(new Color(238, 245, 247));
+        jButtonCerrar.setFont(new Font("Tahoma", 0, 18)); // NOI18N
+        jButtonCerrar.setForeground(new Color(24, 19, 9));
         jButtonCerrar.setText("Cerrar");
-        jButtonCerrar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButtonCerrar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jButtonCerrar.setHorizontalAlignment(SwingConstants.LEFT);
+        jButtonCerrar.setHorizontalTextPosition(SwingConstants.RIGHT);
         jButtonCerrar.setIconTextGap(20);
-        jButtonCerrar.setPreferredSize(new java.awt.Dimension(400, 53));
+        jButtonCerrar.setPreferredSize(new Dimension(400, 53));
         jPanelBotonera.add(jButtonCerrar);
 
-        javax.swing.GroupLayout jPanelContenidoLayout = new javax.swing.GroupLayout(jPanelContenido);
+        GroupLayout jPanelContenidoLayout = new GroupLayout(jPanelContenido);
         jPanelContenido.setLayout(jPanelContenidoLayout);
         jPanelContenidoLayout.setHorizontalGroup(
-            jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            jPanelContenidoLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(jPanelContenidoLayout.createSequentialGroup()
-                .addGroup(jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanelBotonera, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
-                    .addComponent(jPanelEdicion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanelContenidoLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanelBotonera, GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
+                    .addComponent(jPanelEdicion, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         jPanelContenidoLayout.setVerticalGroup(
-            jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            jPanelContenidoLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(jPanelContenidoLayout.createSequentialGroup()
-                .addComponent(jPanelEdicion, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelBotonera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanelEdicion, GroupLayout.PREFERRED_SIZE, 157, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelBotonera, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
-        getContentPane().add(jPanelContenido, java.awt.BorderLayout.CENTER);
+        getContentPane().add(jPanelContenido, BorderLayout.CENTER);
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
     public void manejarAccionConectar(ActionListener al) {
         this.jButtonConectar.addActionListener(al);
     }
     
     public String getDriver() {
-        return this.jTextFieldDriver.getText();
+        return "org.sqlite.JDBC";
+
     }
 
     public String getUrl() {
-        return this.jTextFieldUrl.getText();
+        return "jdbc:sqlite:src/agenda/modelo/bd/agenda.db";
     }
 
     public String getUser() {
@@ -190,21 +163,17 @@ public class JFrameVistaLogin extends JFrameTemplate {
         this.dispose();
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonCerrar;
-    private javax.swing.JButton jButtonConectar;
-    private javax.swing.JLabel jLabelDriver;
-    private javax.swing.JLabel jLabelPass;
-    private javax.swing.JLabel jLabelUrl;
-    private javax.swing.JLabel jLabelUser;
-    private javax.swing.JPanel jPanelBotonera;
-    private javax.swing.JPanel jPanelCampos;
-    private javax.swing.JPanel jPanelContenido;
-    private javax.swing.JPanel jPanelEdicion;
-    private javax.swing.JPanel jPanelLabels;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextFieldDriver;
-    private javax.swing.JTextField jTextFieldUrl;
-    private javax.swing.JTextField jTextFieldUser;
-    // End of variables declaration//GEN-END:variables
+
+    private JButton jButtonCerrar;
+    private JButton jButtonConectar;
+    private JLabel jLabelPass;
+    private JLabel jLabelUser;
+    private JPanel jPanelBotonera;
+    private JPanel jPanelCampos;
+    private JPanel jPanelContenido;
+    private JPanel jPanelEdicion;
+    private JPanel jPanelLabels;
+    private JPasswordField jPasswordField1;
+    private JTextField jTextFieldUser;
+
 }

@@ -38,7 +38,7 @@ public class Controlador {
     }
 
     private void tratarExcepcion(Exception ex) {
-        vPrincipal.mostrarCartelDeError(ex.getMessage() + "\n" + ex.getCause().getMessage());
+        vPrincipal.mostrarCartelDeError(ex.getMessage());
     }
 
     private void listarContactosEnVista() {
@@ -66,6 +66,7 @@ public class Controlador {
         try {
             Contacto co = vFormVer.getContacto();
             model.actualizarContacto(co);
+            vFormVer.cerrarVentana();
         } catch (Exception ex) {
             tratarExcepcion(ex);
         }
@@ -142,6 +143,7 @@ public class Controlador {
                 try {
                     Contacto co = model.obtenerContacto(vPrincipal.obtenerIDSeleccionado());
                     vFormVer = new JFrameVistaFormularioVer("Contacto " + co.nombreCompleto(), vPrincipal, co);
+                    vFormVer.manejarAccionGuardar(new HandlerGuardarContactoVC());
                     vFormVer.manejarAccionEditar(new HandlerEditarContactoVC());
                     vFormVer.manejarAccionBorrar(new HandlerBorrarContactoVC());
                     vFormVer.setVisible(true);
@@ -179,6 +181,7 @@ public class Controlador {
                 vPrincipal.actualizarEstado(true);
                 listarContactosEnVista();
             } catch (Exception ex) {
+                ex.printStackTrace();
                 tratarExcepcion(ex);
             }
         }
@@ -193,9 +196,18 @@ public class Controlador {
                 vFormVer.habilitarCampos(true);
             } else {
                 vFormVer.habilitarCampos(false);
-                actualizarContacto();
-                listarContactosEnVista();
+
             }
+        }
+    }
+
+    private class HandlerGuardarContactoVC implements  ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            actualizarContacto();
+            listarContactosEnVista();
+
+
         }
     }
 

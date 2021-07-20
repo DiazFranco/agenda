@@ -46,7 +46,7 @@ public abstract class JFrameTemplate extends JFrame {
     }
 
     private void cargar() {
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE); // La aplicación por defecto se cierra al tocar la cruz
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE); // La aplicación por defecto se cierra al presionar la cruz
         this.cargarImagenes(); // Personaliza el ícono de la ventana
         this.setResizable(false); // Impide que la ventana cambie de dimensiones
         this.establecerLayout();
@@ -58,7 +58,7 @@ public abstract class JFrameTemplate extends JFrame {
         super.getContentPane().add(jPanelContenido, BorderLayout.CENTER); // El contenido se inserta en el medio
         super.getContentPane().add(jPanelFooter, BorderLayout.PAGE_END); // El footer (pie) se inserta debajo
         this.jPanelContenido.setBorder(BorderFactory.createEmptyBorder(PADDING, PADDING, PADDING, PADDING));
-        this.pack();
+        //this.pack();
     }
 
     private void cargarImagenes() {
@@ -102,20 +102,14 @@ public abstract class JFrameTemplate extends JFrame {
 
     private class JPanelFooter extends JPanel {
 
-        private JLabel jLabelAutor;
-        private JLabel jLabelLink;
 
         public JPanelFooter() {
-            jLabelAutor = new JLabel();
-            jLabelLink = new JLabel();
             establecerLayout();
             setearComponentes();
         }
 
         private void establecerLayout() {
             this.setLayout(new BorderLayout());
-            this.add(jLabelAutor, BorderLayout.WEST);
-            this.add(jLabelLink, BorderLayout.EAST);
             this.setBorder(BorderFactory.createEmptyBorder(PADDING, PADDING, PADDING, PADDING));
         }
 
@@ -125,7 +119,6 @@ public abstract class JFrameTemplate extends JFrame {
                 JLabel jl = (JLabel) comp;
                 jl.setAlignmentX(Component.CENTER_ALIGNMENT);
                 jl.setAlignmentY(Component.CENTER_ALIGNMENT);
-                jl.setFont(new Font("Lato", 0, 19));
             }
         }
 
