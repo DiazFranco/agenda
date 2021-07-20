@@ -12,6 +12,8 @@ import agenda.vista.clases.JFrameVistaLogin;
 import agenda.vista.clases.JFrameVistaFormularioAgregar;
 import agenda.vista.clases.JFrameVistaFormularioVer;
 import agenda.vista.clases.JFrameVistaPrincipal;
+
+import java.io.IOException;
 import java.util.Collection;
 
 
@@ -25,7 +27,7 @@ public class Controlador {
 
     public void iniciar() {
         this.model = new Modelo();
-        this.vPrincipal = new JFrameVistaPrincipal("Agenda Java-BBDD");
+        this.vPrincipal = new JFrameVistaPrincipal("Agenda digital");
 
         this.vPrincipal.manejarAccionAgregar(new HandlerAgregarContactoVP());
         this.vPrincipal.manejarAccionConectar(new HandlerConectarVP());
@@ -67,6 +69,7 @@ public class Controlador {
             Contacto co = vFormVer.getContacto();
             model.actualizarContacto(co);
             vFormVer.cerrarVentana();
+            vPrincipal.mostrarCartelDeInfo("Se editó a " + co.nombreCompleto() + " correctamente.");
         } catch (Exception ex) {
             tratarExcepcion(ex);
         }
@@ -101,7 +104,11 @@ public class Controlador {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            vLogin = new JFrameVistaLogin("Login", vPrincipal);
+            try {
+                vLogin = new JFrameVistaLogin("Login", vPrincipal);
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
             vLogin.manejarAccionConectar(new HandlerConectarVA());
             vLogin.setVisible(true);
         }

@@ -4,21 +4,28 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 
 
 public class JFrameVistaLogin extends JFrameTemplate {
 
 
-    public JFrameVistaLogin(String titulo, Component parent) {
+    Properties properties;
+
+    public JFrameVistaLogin(String titulo, Component parent) throws IOException {
         super(titulo, parent);
         initComponents();
         cargarIconos();
         manejarAccionCerrar();
         setLocationRelativeTo(null);
+        properties = loadProperties();
 
     }
 
-    public JFrameVistaLogin(String titulo) {
+    public JFrameVistaLogin(String titulo) throws IOException {
         this(titulo, null);
     }
     
@@ -135,14 +142,20 @@ public class JFrameVistaLogin extends JFrameTemplate {
     public void manejarAccionConectar(ActionListener al) {
         this.jButtonConectar.addActionListener(al);
     }
+
+    public Properties loadProperties() throws IOException {
+            Properties properties = new Properties();
+            properties.load(new FileInputStream(new File("src/agenda/modelo/bd/bd-params.properties")));
+        return properties;
+    }
     
     public String getDriver() {
-        return "org.sqlite.JDBC";
+        return properties.getProperty("driver");
 
     }
 
     public String getUrl() {
-        return "jdbc:sqlite:src/agenda/modelo/bd/agenda.db";
+        return properties.getProperty("url");
     }
 
     public String getUser() {

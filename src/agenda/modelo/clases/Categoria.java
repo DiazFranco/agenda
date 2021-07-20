@@ -12,7 +12,7 @@ public enum Categoria {
     private String singular;
     private String plural;
 	
-    private Categoria (String s, String p){
+    Categoria(String s, String p){
             this.singular = s;
             this.plural = p;
     }

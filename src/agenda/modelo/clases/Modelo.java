@@ -65,6 +65,7 @@ public class Modelo {
     }
 
     public void actualizarContacto(Contacto co) throws SQLException {
+
         String campos = "nombre = ?, apellido = ?, mail = ?, telefono = ?";
         campos += ", direccion = ?, fecha_nacimiento = ?, categoria = ?";
         String query = "UPDATE contactos SET " + campos + " WHERE id = " + co.getId();
