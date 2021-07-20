@@ -12,4 +12,4 @@ Embebida en un archivo, dentro del proyecto. Precisamente en la carpeta **src\ag
 
 Incluido en el proyecto.
 
-Realizado con JDK 8. Proyecto de Apache NetBeans 12.3
+Realizado con JDK 8.
